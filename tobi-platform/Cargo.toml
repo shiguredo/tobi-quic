@@ -1,0 +1,34 @@
+[package]
+name = "tobi_platform"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "Tokio-based I/O driver for tobi-quic"
+readme = "README.md"
+license.workspace = true
+
+[dependencies]
+# パケット保護とトークン生成の暗号処理に使う
+aws-lc-rs = { workspace = true }
+# IP_PKTINFO / IPV6_PKTINFO の cmsg 操作と setsockopt、および Linux / Android の
+# sendmmsg / recvmmsg と UDP_SEGMENT / UDP_GRO に使う
+libc = "0.2"
+# TLS ハンドシェイク状態の保持に使う
+rustls = { workspace = true }
+# UDP socket の作成 (SO_REUSEADDR / SO_REUSEPORT / IPV6_V6ONLY) と
+# sendmsg / recvmsg の MsgHdr 構築に使う
+socket2 = { version = "0.6", features = ["all"] }
+# パケット型や CID などの基本型に使う
+tobi_core = { workspace = true }
+# Stateless Reset パケットの生成に使う (RFC 9000 Section 10.3)
+tobi_crypto = { workspace = true }
+# qlog イベントの受け渡しに使う
+tobi_qlog = { workspace = true }
+# Sans I/O transport を I/O 層へ接続するために使う
+tobi_transport = { workspace = true }
+# 非同期 UDP I/O と timer 駆動に使う
+tokio = { workspace = true, features = ["io-util", "macros", "net", "rt", "rt-multi-thread", "sync", "time"] }
+# 構造化ログ出力に使う
+tracing = { workspace = true }
+# Retry トークン鍵のメモリ上ゼロ化に使う
+zeroize = { workspace = true, features = ["derive"] }

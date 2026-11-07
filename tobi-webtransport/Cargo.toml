@@ -1,0 +1,22 @@
+[package]
+name = "tobi_webtransport"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "WebTransport over HTTP/3 client and server wiring for tobi-quic"
+readme = "README.md"
+license.workspace = true
+
+[dependencies]
+# ALPN を h3 に設定した TLS 設定の構築に使う
+rustls = { workspace = true }
+# WebTransport over HTTP/3 (draft-ietf-webtrans-http3) の Sans I/O 実装
+shiguredo_http3 = { workspace = true }
+# HTTP/3 の制御ストリーム、QPACK、QUIC I/O の結線
+tobi_http3 = { workspace = true }
+# QUIC の接続・ストリーム・DATAGRAM API
+tobi_quic = { workspace = true }
+# 非同期タスクとチャネル
+tokio = { workspace = true, features = ["macros", "rt", "sync", "time"] }
+# 破棄・無視・失敗の要点を debug / warn で出力する
+tracing = { workspace = true }

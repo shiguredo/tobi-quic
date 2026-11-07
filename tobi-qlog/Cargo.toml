@@ -1,0 +1,14 @@
+[package]
+name = "tobi_qlog"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "qlog (draft-ietf-quic-qlog-*) data types and JSON serialization for tobi-quic"
+readme = "README.md"
+license.workspace = true
+
+[dependencies]
+# qlog JSON / JSON-SEQ シリアライズに使う
+nojson = { workspace = true }
+# qlog 化する QUIC 基本型の定義に使う
+tobi_core = { workspace = true }

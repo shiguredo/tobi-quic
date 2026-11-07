@@ -1,0 +1,20 @@
+[package]
+name = "tobi_transport"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "Sans I/O QUIC transport state machine"
+readme = "README.md"
+license.workspace = true
+
+[dependencies]
+# Frame / VarInt / TransportParameters など基本型に使う
+tobi_core = { workspace = true }
+# パケット保護と鍵導出に使う
+tobi_crypto = { workspace = true }
+# qlog 変換とイベント出力に使う
+tobi_qlog = { workspace = true }
+# rustls ベースの TLS セッション接着層に使う
+tobi_rustls = { workspace = true }
+# 構造化ログ出力に使う
+tracing = { workspace = true }

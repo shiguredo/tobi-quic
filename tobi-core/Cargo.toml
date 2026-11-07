@@ -1,0 +1,14 @@
+[package]
+name = "tobi_core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "Core types and algorithms for tobi-quic"
+readme = "README.md"
+license.workspace = true
+
+[dependencies]
+# no_std 環境の HashMap / HashSet 実装に使う
+hashbrown = { version = "0.17", default-features = false, features = ["default-hasher", "inline-more"] }
+# Cubic の立方根計算に使う
+libm = "0.2"

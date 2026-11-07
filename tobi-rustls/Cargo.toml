@@ -1,0 +1,16 @@
+[package]
+name = "tobi_rustls"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "rustls based TLS session glue for tobi-quic"
+readme = "README.md"
+license.workspace = true
+
+[dependencies]
+# セッションチケット (PSK identity) のハッシュ計算に使う
+aws-lc-rs = { workspace = true }
+# TLS 1.3 / QUIC 連携 API に使う
+rustls = { workspace = true }
+# 暗号スイートや transport parameter の共通型に使う
+tobi_core = { workspace = true }

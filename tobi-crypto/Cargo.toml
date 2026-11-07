@@ -1,0 +1,16 @@
+[package]
+name = "tobi_crypto"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "aws-lc-rs based crypto primitives for tobi-quic"
+readme = "README.md"
+license.workspace = true
+
+[dependencies]
+# AEAD / HKDF / digest など暗号プリミティブに使う
+aws-lc-rs = { workspace = true }
+# QUIC の基本型とラベル定義の共有に使う
+tobi_core = { workspace = true }
+# 鍵導出の中間バッファと Retry token 平文を使用後にゼロ化する
+zeroize = { workspace = true }

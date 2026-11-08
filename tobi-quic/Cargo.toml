@@ -1,0 +1,28 @@
+[package]
+name = "tobi_quic"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "Sans I/O Multipath QUIC implementation in Rust"
+readme = "README.md"
+license.workspace = true
+
+[dependencies]
+# 接続公開 API で必要な暗号補助に使う
+aws-lc-rs = { workspace = true }
+# qlog / JSON-SEQ のシリアライズに使う
+nojson = { workspace = true }
+# TLS 設定と証明書型の公開に使う
+rustls = { workspace = true }
+# QUIC の基本型と transport parameter 定義に使う
+tobi_core = { workspace = true }
+# Stateless Reset Token の HMAC-SHA256 生成を tobi-crypto と一本化するために使う
+tobi_crypto = { workspace = true }
+# tokio ベースの I/O ドライバ統合に使う
+tobi_platform = { workspace = true }
+# qlog データ型とシリアライズ実装に使う
+tobi_qlog = { workspace = true }
+# Sans I/O transport state machine の接続制御に使う
+tobi_transport = { workspace = true }
+# 非同期 API の task / channel 駆動に使う
+tokio = { workspace = true, features = ["rt", "sync"] }

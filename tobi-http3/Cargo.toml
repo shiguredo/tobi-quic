@@ -1,0 +1,16 @@
+[package]
+name = "tobi_http3"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "HTTP/3 over QUIC wiring for tobi-quic"
+readme = "README.md"
+license.workspace = true
+
+[dependencies]
+# HTTP/3 の Sans I/O 状態機械とヘッダーを扱う
+shiguredo_http3 = { workspace = true }
+# 接続とストリームの公開 API を使う
+tobi_quic = { workspace = true }
+# ストリームの受信タスクと上限付きチャネルを扱う
+tokio = { workspace = true, features = ["rt", "sync", "macros"] }
